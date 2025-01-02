@@ -22,7 +22,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# TODO: Uncomment this after the source code is published
-# dist
+dist
 dev-dist
 .vscode
