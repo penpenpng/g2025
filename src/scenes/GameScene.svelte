@@ -11,7 +11,7 @@
   const {}: {} = $props();
 </script>
 
-<Grid --rows={mapW} --cols={mapH}>
+<Grid --rows={mapH} --cols={mapW}>
   {#each Array.from({ length: mapH }) as _, h (h)}
     {#each Array.from({ length: mapW }) as _, w (w)}
       <GridCell --row={h + 1} --col={w + 1}>
@@ -25,7 +25,7 @@
   {/if}
 </Grid>
 
-<Grid --rows={2} --cols={mapH}>
+<Grid --rows={2} --cols={mapW}>
   <GridCell --row="1" --col="1"><FruitBag n={0} /></GridCell>
   <GridCell --row="1" --col="2"><FruitBag n={1} /></GridCell>
   <GridCell --row="2" --col="1"><FruitBag n={2} /></GridCell>
