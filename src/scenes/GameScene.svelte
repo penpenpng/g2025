@@ -7,8 +7,6 @@
   import RegionGameover from "@/objects/RegionGameover.svelte";
   import RegionStatus from "@/objects/RegionStatus.svelte";
   import { state } from "@/scripts/game.svelte";
-
-  const {}: {} = $props();
 </script>
 
 <Grid --rows={mapH} --cols={mapW}>

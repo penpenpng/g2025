@@ -8,12 +8,14 @@ interface GameState {
   gameover: GameoverReason | null;
   timelimit: number;
   commands: Direction[];
+  casted: boolean;
 }
 
 type Scene = "title" | "ingame";
 type GameoverReason = "timeup" | "dragon";
 
 type ScoreFactor = {
+  level: number;
   double: number;
   triple: number;
   filled: number;

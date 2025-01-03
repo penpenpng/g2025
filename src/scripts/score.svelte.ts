@@ -2,6 +2,7 @@ export const factors = $state<ScoreFactor>(initialScoreFactors());
 
 function initialScoreFactors(): ScoreFactor {
   return {
+    level: 0,
     double: 0,
     triple: 0,
     filled: 0,
@@ -26,47 +27,50 @@ export function initializeScore() {
 export function getScoreBreakdown(): [string, number][] {
   const breakdown: [string, number][] = [];
 
+  if (factors.level) {
+    breakdown.push(["ふろあ", factors.level * 3000]);
+  }
   if (factors.double) {
-    breakdown.push(["だぶる", factors.double * 100]);
+    breakdown.push(["だぶる", factors.double * 1000]);
   }
   if (factors.triple) {
-    breakdown.push(["とりぷる", factors.triple * 200]);
+    breakdown.push(["とりぷる", factors.triple * 3000]);
   }
   if (factors.filled) {
-    breakdown.push(["ぱーふぇくと", factors.filled * 300]);
+    breakdown.push(["ぱーふぇくと", factors.filled * 5000]);
   }
   if (factors.snakeTouch) {
     breakdown.push(["へびなで", factors.snakeTouch * 100]);
   }
   if (factors.secretCommand) {
-    breakdown.push(["ひみつのじゅもん", factors.secretCommand * 100000]);
+    breakdown.push(["ひみつのじゅもん", factors.secretCommand * 3000]);
   }
   if (factors.dragon) {
-    breakdown.push(["どらごん", factors.dragon * 2024]);
+    breakdown.push(["どらごん", 2024]);
   }
   if (factors.apple) {
     breakdown.push(["りんご", factors.apple * 10]);
   }
   if (factors.banana) {
-    breakdown.push(["ばなな", factors.banana * 20]);
+    breakdown.push(["ばなな", factors.banana * 50]);
   }
   if (factors.orange) {
-    breakdown.push(["みかん", factors.orange * 30]);
+    breakdown.push(["みかん", factors.orange * 100]);
   }
   if (factors.cherry) {
-    breakdown.push(["さくらんぼ", factors.cherry * 40]);
+    breakdown.push(["さくらんぼ", factors.cherry * 300]);
   }
   if (factors.grapes) {
-    breakdown.push(["ぶどう", factors.grapes * 50]);
+    breakdown.push(["ぶどう", factors.grapes * 500]);
   }
   if (factors.melon) {
-    breakdown.push(["めろん", factors.melon * 60]);
+    breakdown.push(["めろん", factors.melon * 1000]);
   }
   if (factors.peach) {
-    breakdown.push(["もも", factors.peach * 70]);
+    breakdown.push(["もも", factors.peach * 1500]);
   }
   if (factors.watermelon) {
-    breakdown.push(["すいか", factors.watermelon * 80]);
+    breakdown.push(["すいか", factors.watermelon * 2000]);
   }
 
   return breakdown;

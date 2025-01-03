@@ -4,7 +4,7 @@
 </script>
 
 <div class="region-status">
-  <div class="label">のこりじかん:</div>
+  <div class="label">じかん:</div>
   <div class="value">
     {Math.floor(state.timelimit)}
   </div>
@@ -14,7 +14,7 @@
     {state.level}
   </div>
 
-  <div class="label">へびのながさ:</div>
+  <div class="label">ながさ:</div>
   <div class="value">
     {getTotalScore()}m
   </div>

@@ -1,10 +1,10 @@
 export const mapH = 5;
 export const mapW = 5;
-export const timelimit = 20;
+export const timelimit = 30;
 export const timeBonus = {
-  double: 1,
-  triple: 2,
-  filled: 3,
+  double: 5,
+  triple: 10,
+  filled: 15,
 };
 
 const arrangement = ["lrlud", "drdlu", "lruud", "rudlr", "ldrlu"];

@@ -10,6 +10,7 @@
 
 <div class="title-scene">
   <div class="title">へびのばし</div>
+  <div class="version">v2.0.0</div>
 
   <button use:tap class="button" ontap={startNewGame}>すたーと</button>
 
@@ -64,8 +65,12 @@
   }
 
   .title {
-    margin-block: min(6vw, 30px);
+    margin-block: min(6vw, 30px) 6px;
     font-size: min(10vw, 50px);
+  }
+
+  .version {
+    font-size: min(5vw, 25px);
   }
 
   .sub-title {
@@ -93,6 +98,7 @@
 
   .button {
     padding: min(4vw, 20px);
+    margin-block: min(4vw, 20px);
     font-size: min(6vw, 32px);
     border: 3px solid black;
   }

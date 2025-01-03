@@ -32,6 +32,7 @@ function initialState(): GameState {
     gameover: null,
     timelimit,
     commands: [],
+    casted: false,
     ...generateMap(0),
   };
 }
@@ -105,12 +106,16 @@ function pushFruit(fruit: Fruit) {
 function finishFloor() {
   evaluateFruitBag();
 
+  factors.level++;
+  state.level++;
+
   const gameover = state.bag.includes("dragon");
   if (gameover) {
     finishGame("dragon");
   } else {
     playAudio("nextfloor");
-    state.level++;
+
+    state.casted = false;
     state.snakeTouched = false;
     state.bag = [];
 
@@ -130,19 +135,22 @@ function evaluateFruitBag() {
     dict.set(fruit, (dict.get(fruit) ?? 0) + 1);
   }
 
+  const calcBonus = (base: number) =>
+    Math.min(base - Math.floor(state.level / 5), Math.floor(base / 3));
+
   for (const count of dict.values()) {
     switch (count) {
       case 2:
         factors.double++;
-        state.timelimit += timeBonus.double;
+        state.timelimit += calcBonus(timeBonus.double);
         break;
       case 3:
         factors.triple++;
-        state.timelimit += timeBonus.triple;
+        state.timelimit += calcBonus(timeBonus.triple);
         break;
       case 4:
         factors.filled++;
-        state.timelimit += timeBonus.filled;
+        state.timelimit += calcBonus(timeBonus.filled);
         break;
       default:
         break;
@@ -151,7 +159,7 @@ function evaluateFruitBag() {
 }
 
 function evaluateCommand() {
-  if (factors.secretCommand > 0) {
+  if (state.casted) {
     return;
   }
 
@@ -162,6 +170,8 @@ function evaluateCommand() {
   }
 
   playAudio("secret");
+  state.casted = true;
+  state.commands = [];
   factors.secretCommand++;
 }
 
