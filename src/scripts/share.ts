@@ -11,7 +11,7 @@ export function copyResult() {
 }
 
 function getResultText() {
-  return `あけましておめでとう！私はへびのばしでへびを${getTotalScore()}m伸ばしたよ！ ${
+  return `あけましておめでとう！私はへびのばしでへびを${getTotalScore()}m伸ばしたよ！！ ${
     location.href
   }`;
 }
